@@ -1,0 +1,56 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+body {
+  background-color: #fefefe;
+}
+
+#sign_in {
+   color: blue;
+   text-align: right;
+   margin-right: 50px;
+   font-size: 20px;
+ }
+
+ h1 {
+   text-align: center
+ }
+
+ .wikis
+ {
+   background: #b7c9c7;
+   border: solid;
+   margin-left: 500px;
+   margin-top: 100px;
+   height: 150px;
+   width: 400px
+ }
+
+ .green-btn {
+  background: #acc906;
+  border-radius: 20px;
+  width: 100px;
+  padding: -10px;
+  margin-top: 30px;
+  font-family: Arial;
+  color: white;
+  font-size: 20px;
+}
+
+ .centered-below{
+  margin: 0 auto;
+  margin-top: 30px;
+ }
+
+ .low-margin{
+  margin-top: 30px;
+ }
+
+ .centered-text{
+ text-align: center;
+ }
