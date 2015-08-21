@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.shift-right{
+  margin-left: 100px
+}
+
+.shift-left{
+  margin-right: 100px
+}
+
+.shift-down{
+  margin-top: 100px;
+}
+
+.move-to-center{
+  margin-left: 500px
+}
