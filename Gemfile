@@ -12,7 +12,9 @@ group :production do
  group :development do
    gem 'sqlite3'
  end
- 
+
+ gem 'figaro', '1.0'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
@@ -24,6 +26,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'devise'
+gem 'faker'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
