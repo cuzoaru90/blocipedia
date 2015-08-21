@@ -19,6 +19,7 @@ require 'faker'
    user.save!
  end
 
+
  user = User.last
  user.skip_reconfirmation!
 
@@ -26,3 +27,5 @@ require 'faker'
    email: 'cuzoaru90@gmail.com',
    password: 'helloworld'
  )
+
+ users = User.all
