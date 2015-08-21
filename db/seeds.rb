@@ -18,3 +18,11 @@ require 'faker'
    user.skip_confirmation!
    user.save!
  end
+
+ user = User.last
+ user.skip_reconfirmation!
+
+ user.update_attributes!(
+   email: 'cuzoaru90@gmail.com',
+   password: 'helloworld'
+ )
