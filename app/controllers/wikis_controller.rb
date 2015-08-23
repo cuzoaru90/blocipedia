@@ -1,6 +1,6 @@
 class WikisController < ApplicationController
   def index
-    @wikis = Wiki.all
+    @wikis = Wiki.where(user: current_user)
   end
 
   def show
@@ -11,8 +11,51 @@ class WikisController < ApplicationController
     @wiki = Wiki.new
   end
 
-  def edit
+  def create
+    @wiki = Wiki.new(wiki_params)
 
+    @wiki.user = current_user
+
+     if @wiki.save
+       flash[:notice] = "Wiki was saved."
+       redirect_to wikis_path
+     else
+       flash[:error] = "Error. Couuld not save the wiki."
+     end
+
+  end
+
+  def edit
+    @wiki = Wiki.find(params[:id])
+  end
+
+  def update
+     @wiki = Wiki.find(params[:id])
+     if @wiki.update_attributes(wiki_params)
+       flash[:notice] = "Updated the wiki."
+       redirect_to wikis_path
+     else
+       flash[:error] = "Could not update wiki. Please try again."
+       render :edit
+     end
+   end
+
+   def destroy
+     @wiki = Wiki.find(params[:id])
+ 
+     if @wiki.destroy
+       flash[:notice] = "\"#{@wiki.title}\" has been deleted."
+       redirect_to wikis_path
+     else
+       flash[:error] = "Could not delete the wiki."
+       render :show
+     end
+   end
+
+  private
+
+  def wiki_params
+    params.require(:wiki).permit(:title, :body)
   end
 
 end
