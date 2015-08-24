@@ -6,7 +6,7 @@ gem 'rails',                    '4.2.3'
 
 gem 'active_model_serializers', '~> 0.9.3'
 
-gem 'bootstrap-sass',           '~> 3.3.4.1'
+gem 'bootstrap-sass',           '~> 3.3.5'
 
 gem 'coffee-rails',             '~> 4.1.0'
 
@@ -23,8 +23,7 @@ gem 'pundit',                   '~> 1.0.0'
 gem 'rack-cors',                '~> 0.4.0', :require => 'rack/cors'
 
 gem 'sass-rails',               '~> 5.0'
-
-gem 'turbolinks',               '~> 2.5.3'
+gem 'sprockets-rails',          '~> 2.3.2'
 
 gem 'uglifier',                 '>= 1.3.0'
 
