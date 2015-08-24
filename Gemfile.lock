@@ -178,7 +178,7 @@ GEM
     rspec-support (3.3.0)
     ruby-progressbar (1.7.5)
     rubyzip (1.1.7)
-    sass (3.4.16)
+    sass (3.4.17)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
@@ -230,7 +230,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.9.3)
   annotate (~> 2.6.8)
-  bootstrap-sass (~> 3.3.5)
+  bootstrap-sass (~> 3.3.5.1)
   byebug (~> 4.0.5)
   coffee-rails (~> 4.1.0)
   devise (~> 3.4.1)

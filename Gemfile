@@ -6,7 +6,7 @@ gem 'rails',                    '4.2.3'
 
 gem 'active_model_serializers', '~> 0.9.3'
 
-gem 'bootstrap-sass',           '~> 3.3.5'
+gem 'bootstrap-sass',           '~> 3.3.5.1'
 
 gem 'coffee-rails',             '~> 4.1.0'
 
