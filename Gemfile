@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-# ruby                            '2.2.2'
+ruby                            '2.2.2'
 
-gem 'rails',                    '4.2.3'
+gem 'rails',                    '~> 4.2.4'
 
 gem 'active_model_serializers', '~> 0.9.3'
 
@@ -36,13 +36,14 @@ end
 group :production do
   gem 'foreman',                '~> 0.78.0'
   gem 'passenger',              '~> 5.0.16'
-  gem 'pg',                     '~> 0.18.2'
+  # gem 'pg',                     '~> 0.18.2'
   gem 'rails_12factor',         '~> 0.0.3'
 end
 
 group :development, :test do
   gem 'annotate',               '~> 2.6.8'
   gem 'byebug',                 '~> 4.0.5'
+  gem 'capybara',               '~> 2.4.4'
   gem 'minitest',               '~> 5.5.1'
   gem 'minitest-reporters',     '~> 1.0.11'
   # gem 'poltergeist',            '~> 1.6.0'
