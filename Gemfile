@@ -27,6 +27,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'devise'
+gem 'factory_girl_rails', '~> 4.0'
 gem 'faker'
 
 gem 'pundit'
