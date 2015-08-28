@@ -7,31 +7,28 @@ body {
 }
 
 #sign_in {
-   color: blue;
-   text-align: right;
-   margin-right: 50px;
-   font-size: 20px;
- }
+  color: blue;
+  text-align: right;
+  margin-right: 50px;
+  font-size: 20px;
+}
 
- h1 {
-   text-align: center
- }
+h1 {
+  text-align: center
+}
 
+.box {
+  background: #b7c9c7;
+  border: solid;
+  height: 150px;
+  width: 400px
+}
 
- .box
- {
-   background: #b7c9c7;
-   border: solid;
-   height: 150px;
-   width: 400px
- }
+.tall {
+  height: 350px;
+}
 
- .tall
- {
-   height: 350px;
- }
-
- .green-btn {
+.green-btn {
   background: #acc906;
   border-radius: 20px;
   width: 100px;
@@ -42,15 +39,15 @@ body {
   font-size: 20px;
 }
 
- .centered-below{
+.centered-below {
   margin: 0 auto;
   margin-top: 30px;
  }
 
- .low-margin{
+.low-margin {
   margin-top: 30px;
- }
+}
 
- .centered-text{
- text-align: center;
- }
+.centered-text {
+  text-align: center;
+}
