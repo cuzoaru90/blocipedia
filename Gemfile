@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-# ruby                            '2.2.2'
+ruby                            '2.2.2'
 
 gem 'rails',                    '4.2.3'
 
@@ -17,6 +17,8 @@ gem 'figaro',                   '~> 1.1.0'
 
 gem 'jbuilder',                 '~> 2.0'
 gem 'jquery-rails',             '~> 4.0.3'
+
+gem 'nokogiri',                 '~> 1.6.6.2'
 
 gem 'pundit',                   '~> 1.0.0'
 
