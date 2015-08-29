@@ -1,20 +1,25 @@
 class WikisController < ApplicationController
+
   def index
-    @wikis = Wiki.where(user: current_user)
+    @public_wikis = Wiki.where(private: false)
+    #@wikis = Wiki.where(user: current_user)
+    authorize @public_wikis
   end
 
   def show
     @wiki = Wiki.find(params[:id])
+    authorize @wiki
   end
 
   def new
     @wiki = Wiki.new
+    authorize @wiki
   end
 
   def create
     @wiki = Wiki.new(wiki_params)
-
     @wiki.user = current_user
+    authorize @wiki
 
      if @wiki.save
        flash[:notice] = "Wiki was saved."
@@ -27,13 +32,14 @@ class WikisController < ApplicationController
 
   def edit
     @wiki = Wiki.find(params[:id])
+    authorize @wiki
   end
 
   def update
      @wiki = Wiki.find(params[:id])
      if @wiki.update_attributes(wiki_params)
        flash[:notice] = "Updated the wiki."
-       redirect_to wikis_path
+       redirect_to @wiki.user
      else
        flash[:error] = "Could not update wiki. Please try again."
        render :edit
@@ -55,7 +61,7 @@ class WikisController < ApplicationController
   private
 
   def wiki_params
-    params.require(:wiki).permit(:title, :body)
+    params.require(:wiki).permit(:title, :body, :private)
   end
 
 end

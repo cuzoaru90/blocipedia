@@ -34,6 +34,7 @@ require 'faker'
    wiki = Wiki.create!(
      title: Faker::Lorem.word,
      body:  Faker::Lorem.paragraph,
+     private: false, # public by default
      user: users.sample
    )
  end
