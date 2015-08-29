@@ -12,6 +12,12 @@
     <%= link_to wiki.title, wiki %> 
   </div> 
 
+  <div class="col-md-2 no-overflow shift-down">
+    <% if policy(wiki).edit? %>
+    <%= link_to "Edit", edit_wiki_path(wiki) %>
+    <% end %>
+  </div>
+
   </div>
 
  <% end %>

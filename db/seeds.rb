@@ -13,24 +13,37 @@ require 'faker'
    user = User.new(
      name:     Faker::Name.name,
      email:    Faker::Internet.email,
-     password: Faker::Lorem.characters(10)
+     password: Faker::Lorem.characters(10),
+     #role: 'standard'
    )
    user.skip_confirmation!
    user.save!
  end
 
+ user = User.new(
+     name:     'Premium User',
+     email:    'premium@example.com',
+     password: 'helloworld',
+     #role: 'premium'
+  )
 
- user = User.last
- user.skip_reconfirmation!
+  user.skip_confirmation!
+  user.save!
 
- user.update_attributes!(
-   email: 'cuzoaru90@gmail.com',
-   password: 'helloworld'
- )
+ user = User.new(
+     name:     'Admin',
+     email:    'admin@example.com',
+     password: 'helloworld',
+     #role: 'admin'
+  )
+  
+  user.skip_confirmation!
+  user.save!
 
- users = User.all
 
- 20.times do
+  users = User.all
+
+ 30.times do
    wiki = Wiki.create!(
      title: Faker::Lorem.word,
      body:  Faker::Lorem.paragraph,
