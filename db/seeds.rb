@@ -6,23 +6,29 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
 require 'faker'
 
- 5.times do
-   user = User.new(
-     name:     Faker::Name.name,
-     email:    Faker::Internet.email,
-     password: Faker::Lorem.characters(10)
-   )
-   user.skip_confirmation!
-   user.save!
- end
+User.destroy_all
 
- user = User.last
- user.skip_reconfirmation!
+5.times do
+  user = User.new( name:     Faker::Name.name,
+                   email:    Faker::Internet.email,
+                   password: Faker::Lorem.characters(10) )
+  user.skip_confirmation!
+  user.save!
+end
 
- user.update_attributes!(
-   email: 'cuzoaru90@gmail.com',
-   password: 'helloworld'
- )
+user = User.new( name:     'Chuck Uzoaru', 
+                 email:    'cuzoaru90@gmail.com', 
+                 password: 'helloworld' )
+user.skip_confirmation!
+user.save!
+
+users = User.all
+
+20.times do
+  wiki = Wiki.create!( title: Faker::Lorem.word,
+                       body:  Faker::Lorem.paragraph,
+                       private: false, # public by default
+                       user: users.sample )
+end

@@ -45,7 +45,7 @@ end
 group :development, :test do
   gem 'annotate',               '~> 2.6.8'
   gem 'byebug',                 '~> 4.0.5'
-  gem 'capybara',               '~> 2.4.4'
+  gem 'factory_girl_rails',     '~> 4.5.0'
   gem 'minitest',               '~> 5.5.1'
   gem 'minitest-reporters',     '~> 1.0.11'
   # gem 'poltergeist',            '~> 1.6.0'
