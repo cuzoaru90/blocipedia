@@ -1,7 +1,7 @@
 class WikiPolicy < ApplicationPolicy
 
-def create?
-  
+def edit?
+  user.present?
 end
 
 end
