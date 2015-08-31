@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :wikis
 
-  after_initialize :make_standard
+  before_create :make_standard
 
   def standard?
     role == 'standard'
