@@ -42,6 +42,7 @@ private
 
 def make_premium
     current_user.update_attribute(:role, 'premium')
+    current_user.save!
 end
 
 end

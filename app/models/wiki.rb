@@ -2,7 +2,7 @@ class Wiki < ActiveRecord::Base
   belongs_to :user
 
   #after_initialize :make_public
-  ## Method causes me problems when making wikis private
+  ## Method causes problems when making wikis private
 
   default_scope { order('title ASC') }
 

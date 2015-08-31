@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
   def admin?
     role == 'admin'
   end
+
+  def downgrade_account
+    self.update_attribute(:role, 'standard')
+  end
   
 
   private

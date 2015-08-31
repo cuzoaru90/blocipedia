@@ -32,8 +32,9 @@
 
 </div>
 
-<div class = 'green-btn centered-text move-to-center'> 
+ <div class="col-md-2 col-md-offset-5">
   <% if @user == current_user %>
-  <%= link_to "New Wiki", new_wiki_path %> 
+    <%= button_to "New Wiki", new_wiki_path, :class => "green-btn centered-text move-to-center", 
+        :method => :get %>
   <% end %>
 </div>
