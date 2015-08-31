@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :wikis
 
-  after_initialize :make_standard
+  before_create :make_standard
 
   def standard?
     role == 'standard'
@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
 
   def admin?
     role == 'admin'
+  end
+
+  def downgrade_account
+    self.update_attribute(:role, 'standard')
   end
   
 

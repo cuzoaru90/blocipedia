@@ -1,5 +1,6 @@
 class WikisController < ApplicationController
 
+
   def index
     @public_wikis = Wiki.where(private: false)
     #@wikis = Wiki.where(user: current_user)
@@ -18,6 +19,11 @@ class WikisController < ApplicationController
 
   def create
     @wiki = Wiki.new(wiki_params)
+
+      if current_user.standard?
+        @wiki.update_attribute(:private, false)
+      end
+
     @wiki.user = current_user
     authorize @wiki
 
@@ -51,7 +57,7 @@ class WikisController < ApplicationController
  
      if @wiki.destroy
        flash[:notice] = "\"#{@wiki.title}\" has been deleted."
-       redirect_to wikis_path
+       redirect_to @wiki.user
      else
        flash[:error] = "Could not delete the wiki."
        render :show
