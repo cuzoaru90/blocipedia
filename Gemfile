@@ -20,6 +20,8 @@ gem 'jquery-rails',             '~> 4.0.3'
 
 gem 'nokogiri',                 '~> 1.6.6.2'
 
+gem 'redcarpet',                '~> 3.3.2'
+
 gem 'pundit',                   '~> 1.0.0'
 
 gem 'rack-cors',                '~> 0.4.0', :require => 'rack/cors'

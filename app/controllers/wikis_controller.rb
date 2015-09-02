@@ -2,8 +2,7 @@ class WikisController < ApplicationController
 
 
   def index
-    @public_wikis = Wiki.where(private: false)
-    #@wikis = Wiki.where(user: current_user)
+    @public_wikis = Wiki.where(private: false).paginate(page: params[:page], per_page: 10)
     authorize @public_wikis
   end
 
