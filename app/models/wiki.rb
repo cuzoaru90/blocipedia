@@ -1,3 +1,5 @@
+include ApplicationHelper
+
 class Wiki < ActiveRecord::Base
   belongs_to :user
 
@@ -11,10 +13,21 @@ class Wiki < ActiveRecord::Base
    self.private == true
   end
 
+  def markdown_title
+    markdown_to_html (self.title)
+  end
+
+  def markdown_body
+    markdown_to_html (self.body)
+  end
+
   private
 
   def make_public
     self.private = false
   end
+
+
+
 
 end
