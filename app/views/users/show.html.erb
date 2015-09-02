@@ -1,12 +1,10 @@
 <% if @user == current_user %>
-<h1>My Wikis</h1>
+  <h1>My Wikis</h1>
 <% else %>
-<h1> <%= @user.name %></h1>
+  <h1> <%= @user.name %></h1>
 <% end %>
 
-<div class = "tall teal scrollable container">
-
-<% @user.wikis.each do |wiki| %> 
+<% @wikis.each do |wiki| %> 
 
 <div class = 'row'>
 
@@ -30,7 +28,7 @@
 
 <% end %>
 
-</div>
+<%= will_paginate @wikis %>
 
  <div class="col-md-2 col-md-offset-5">
   <% if @user == current_user %>

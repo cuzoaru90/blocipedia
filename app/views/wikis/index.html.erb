@@ -1,9 +1,6 @@
 <br>
 <h1>Public Wikis</h1>
 
-
-<div class = "tall teal scrollable container">
-
 <% @public_wikis.each do |wiki| %>
 
  <div class = 'row'>
@@ -12,7 +9,7 @@
     <%= link_to wiki.title, wiki %> 
   </div> 
 
-  <div class="col-md-2 no-overflow shift-down">
+  <div class="col-md-2 col-md-offset-2 no-overflow shift-down">
     <% if policy(wiki).edit? %>
     <%= link_to "Edit", edit_wiki_path(wiki) %>
     <% end %>
@@ -20,6 +17,9 @@
 
   </div>
 
+
  <% end %>
-</div>
+
+  <br>
+  <%= will_paginate @public_wikis %>
 
