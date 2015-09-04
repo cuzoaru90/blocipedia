@@ -1,7 +1,11 @@
 include ApplicationHelper
 
 class Wiki < ActiveRecord::Base
-  belongs_to :user
+
+
+  has_many :collaborators
+  has_many :users, through: :collaborators
+
 
   #after_initialize :make_public
   ## Method causes problems when making wikis private
@@ -26,7 +30,6 @@ class Wiki < ActiveRecord::Base
   def make_public
     self.private = false
   end
-
 
 
 
