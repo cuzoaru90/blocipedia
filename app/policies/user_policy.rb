@@ -1,3 +1,4 @@
 class UserPolicy < ApplicationPolicy
 
+
 end

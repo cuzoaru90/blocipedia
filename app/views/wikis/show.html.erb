@@ -3,7 +3,17 @@
 <h1> <%= @wiki.markdown_title %></h1>
 <p> <%= @wiki.markdown_body %></p>
 
-<p> Created by: <%= @wiki.user.name %> 
+<p> Created by: <%= @wiki.users.first.name %> 
+
+<p> Shared with:
+ <% @wiki.collaborators.each do |c| %>
+
+   <% if c.user != @wiki.users.first  %>
+    <%= c.user.name %>,
+   <% end %>
+
+ <% end %>
+</p>
 
 </div>
 

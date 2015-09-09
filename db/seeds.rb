@@ -26,22 +26,22 @@ user.save!
 
 users = User.all
 
-10.times do 
-  Wiki.create!( title: Faker::Lorem.word,
-                body:  Faker::Lorem.paragraph,
-                private: false )
+users.each do | user | 
+  user.wikis.create!( title: Faker::Lorem.word,
+                      body:  Faker::Lorem.paragraph,
+                      private: false )
 end
 
 wikis = Wiki.all
 
-count = 0
+# count = 0
 
-while count < 20
-  user = users.sample
-  wiki = wikis.sample
+# while count < 20
+#   user = users.sample
+#   wiki = wikis.sample
 
-  if !Collaborator.find_by(user_id: user.id, wiki_id: wiki.id)
-    Collaborator.create(user: user, wiki: wiki)
-    count = count + 1
-  end
-end
+#   if !Collaborator.find_by(user_id: user.id, wiki_id: wiki.id)
+#     Collaborator.create(user: user, wiki: wiki)
+#     count = count + 1
+#   end
+# end
