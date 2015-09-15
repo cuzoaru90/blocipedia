@@ -3,8 +3,8 @@ include ApplicationHelper
 class Wiki < ActiveRecord::Base
 
 
-  has_many :collaborators
-  has_many :users, through: :collaborators
+  has_many :collaborations
+  has_many :users, through: :collaborations
 
 
   #after_initialize :make_public

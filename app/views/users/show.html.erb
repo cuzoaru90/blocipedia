@@ -22,8 +22,8 @@
   </div>
 
   <div class="col-md-2 no-overflow shift-down">
-    <% if wiki.private? && current_user == wiki.collaborators.first.user%>
-    <%= link_to "Add user", new_wiki_collaborator_path(wiki) %>
+    <% if wiki.private? && current_user == wiki.collaborations.first.user%>
+    <%= link_to "Add user", new_wiki_collaboration_path(wiki) %>
     <% end %>
   </div>
 

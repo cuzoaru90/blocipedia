@@ -3,22 +3,22 @@
 <h1> <%= @wiki.markdown_title %></h1>
 <p> <%= @wiki.markdown_body %></p>
 
-<p> Created by: <%= @wiki.collaborators.first.user.name %> 
+<p> Created by: <%= @wiki.collaborations.first.user.name %> 
 
 <p> Shared with:
- <% @wiki.collaborators.each do |c| %>
+ <% @wiki.collaborations.each do |c| %>
 
 <div class = 'row'>
 
-<% if c.user != @wiki.collaborators.first.user  %>
+<% if c.user != @wiki.collaborations.first.user  %>
 
   <div class="col-md-4 col-md-offset-2"> 
      <%= c.user.name %>
   </div> 
 
   <div class="col-md-4">
-    <% if current_user == @wiki.collaborators.first.user%>
-    <%= link_to "Remove", wiki_collaborator_path(@wiki, c), method: :delete %>
+    <% if current_user == @wiki.collaborations.first.user%>
+    <%= link_to "Remove", wiki_collaboration_path(@wiki, c), method: :delete %>
     <% end %>
   </div>
 

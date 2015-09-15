@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  has_many :collaborators
-  has_many :wikis, through: :collaborators
+  has_many :collaborations
+  has_many :wikis, through: :collaborations
 
 
   before_create :make_standard

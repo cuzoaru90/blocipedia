@@ -17,7 +17,7 @@ class WikiPolicy < ApplicationPolicy
 #          all_wikis = scope.all
 #          all_wikis.each do |wiki|
 #            if wiki.users.include?(user)
-#              wikis << wiki # if the user is premium, only show them public wikis, or that private wikis they created, or private wikis they are a collaborator on
+#              wikis << wiki # if the user is premium, only show them public wikis, or that private wikis they created, or private wikis they are a collaboration on
 #            end
 #          end
 #        else # this is the lowly standard user
@@ -25,7 +25,7 @@ class WikiPolicy < ApplicationPolicy
 #          wikis = []
 #          all_wikis.each do |wiki|
 #            if wiki.public? || wiki.users.include?(user)
-#              wikis << wiki # only show standard users public wikis and private wikis they are a collaborator on
+#              wikis << wiki # only show standard users public wikis and private wikis they are a collaboration on
 #            end
 #          end
 #        end
@@ -39,7 +39,7 @@ class WikiPolicy < ApplicationPolicy
 
 
  def destroy?
-  (user.present? && user == record.collaborators.first.user)
+  (user.present? && user == record.collaborations.first.user)
  end
 
 

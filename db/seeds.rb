@@ -40,8 +40,8 @@ wikis = Wiki.all
 #   user = users.sample
 #   wiki = wikis.sample
 
-#   if !Collaborator.find_by(user_id: user.id, wiki_id: wiki.id)
-#     Collaborator.create(user: user, wiki: wiki)
+#   if !collaboration.find_by(user_id: user.id, wiki_id: wiki.id)
+#     collaboration.create(user: user, wiki: wiki)
 #     count = count + 1
 #   end
 # end
