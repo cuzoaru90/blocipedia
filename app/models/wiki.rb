@@ -17,6 +17,10 @@ class Wiki < ActiveRecord::Base
    self.private == true
   end
 
+  def public?
+   self.private == false
+  end
+
   def markdown_title
     markdown_to_html (self.title)
   end

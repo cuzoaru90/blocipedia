@@ -12,12 +12,14 @@
 
 <% if c.user != @wiki.collaborators.first.user  %>
 
-  <div class="col-md-2 col-md-offset-2 no-overflow"> 
+  <div class="col-md-4 col-md-offset-2"> 
      <%= c.user.name %>
   </div> 
 
-  <div class="col-md-2 no-overflow">
+  <div class="col-md-4">
+    <% if current_user == @wiki.collaborators.first.user%>
     <%= link_to "Remove", wiki_collaborator_path(@wiki, c), method: :delete %>
+    <% end %>
   </div>
 
 <% end %> 

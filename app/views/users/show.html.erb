@@ -1,12 +1,15 @@
 <% if @user == current_user %>
-  <h1>My Wikis</h1>
+<h1>My Wikis</h1>
 <% else %>
-  <h1> <%= @user.name %></h1>
+<h1> <%= @user.name %></h1>
 <% end %>
 
 <% @wikis.each do |wiki| %> 
 
+<% if wiki.users.include?(current_user) || wiki.public? %>
+
 <div class = 'row'>
+  
 
   <div class="col-md-2 col-md-offset-2 no-overflow shift-down"> 
     <%= link_to wiki.markdown_title, wiki %> 
@@ -19,7 +22,7 @@
   </div>
 
   <div class="col-md-2 no-overflow shift-down">
-    <% if wiki.private? %>
+    <% if wiki.private? && current_user == wiki.collaborators.first.user%>
     <%= link_to "Add user", new_wiki_collaborator_path(wiki) %>
     <% end %>
   </div>
@@ -31,15 +34,17 @@
     <% end %>
   </div>
 
-  </div>
+</div>
 
 <% end %>
 
-<%= will_paginate @wikis %>
+<% end %>
 
- <div class="col-md-2 col-md-offset-5">
+
+
+<div class="col-md-2 col-md-offset-5">
   <% if @user == current_user %>
-    <%= button_to "New Wiki", new_wiki_path, :class => "green-btn centered-text move-to-center", 
-        :method => :get %>
+  <%= button_to "New Wiki", new_wiki_path, :class => "green-btn centered-text move-to-center", 
+  :method => :get %>
   <% end %>
 </div>
