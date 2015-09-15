@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
     self.update_attribute(:role, 'standard')
   end
   
+  
 
   private
 

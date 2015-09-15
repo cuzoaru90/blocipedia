@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
    def publicize_wikis
      current_user.wikis.each do |wiki|
-      wiki.update_attribute(:private, false)
+       wiki.update_attribute(:private, false)
      end
    end
 

@@ -37,14 +37,16 @@ class WikisController < ApplicationController
 
   def edit
     @wiki = Wiki.find(params[:id])
+    @users = @wiki.available_users
     authorize @wiki
   end
 
   def update
      @wiki = Wiki.find(params[:id])
+     
      if @wiki.update_attributes(wiki_params)
        flash[:notice] = "Updated the wiki."
-       redirect_to wikis_path
+       redirect_to @wiki.users.first
      else
        flash[:error] = "Could not update wiki. Please try again."
        render :edit
@@ -62,6 +64,7 @@ class WikisController < ApplicationController
        render :show
      end
    end
+
 
   private
 

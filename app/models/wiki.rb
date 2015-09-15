@@ -25,6 +25,17 @@ class Wiki < ActiveRecord::Base
     markdown_to_html (self.body)
   end
 
+  def available_users
+      available = []
+
+      User.order(name: :asc).each do |user|
+        available << user unless self.users.include?(user)
+      end
+
+      return available
+
+  end
+
   private
 
   def make_public
