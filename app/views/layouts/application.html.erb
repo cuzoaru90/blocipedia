@@ -7,14 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
        <div class="pull-left shift-right">
-         <% if current_user %>
-         <%= link_to "My Wikis", current_user %>
-         <% end %>
+         <%= link_to "Home", welcome_index_path %>
        </div>
 
        <div class="pull-left shift-right">
          <%= link_to "Public Wikis", wikis_path %>
+       </div>
+
+       <div class="pull-left shift-right">
+         <% if current_user %>
+         <%= link_to "My Wikis", current_user %>
+         <% end %>
        </div>
 
         <div class="pull-right shift-left user-info">
