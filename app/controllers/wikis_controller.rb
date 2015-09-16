@@ -23,7 +23,7 @@ class WikisController < ApplicationController
         @wiki.update_attribute(:private, false)
       end
 
-    @wiki.users.push(current_user)
+    @wiki.users.push(current_user) # Wiki needs to have an initial user/collaboration
     authorize @wiki
 
      if @wiki.save
@@ -46,7 +46,7 @@ class WikisController < ApplicationController
      
      if @wiki.update_attributes(wiki_params)
        flash[:notice] = "Updated the wiki."
-       redirect_to @wiki.users.first
+       redirect_to @wiki
      else
        flash[:error] = "Could not update wiki. Please try again."
        render :edit
@@ -69,7 +69,7 @@ class WikisController < ApplicationController
   private
 
   def wiki_params
-    params.require(:wiki).permit(:title, :body, :private)
+    params.require(:wiki).permit(:title, :body, :private, :collaborations)
   end
 
 end

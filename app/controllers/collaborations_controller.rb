@@ -8,7 +8,7 @@ class CollaborationsController < ApplicationController
   end
 
   def show
-    @collaboration = collaboration.find(params[:id])
+    @collaboration = Collaboration.find(params[:id])
   end
 
   def create
@@ -24,7 +24,7 @@ class CollaborationsController < ApplicationController
   end
 
   def destroy
-    @collaboration = collaboration.find(params[:id])
+    @collaboration = Collaboration.find(params[:id])
 
     if @collaboration.destroy
        flash[:notice] = " #{@collaboration.user.name} was successfully removed."

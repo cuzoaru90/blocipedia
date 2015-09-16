@@ -5,6 +5,8 @@
 
 <p> Created by: <%= @wiki.collaborations.first.user.name %> 
 
+<% if @wiki.private?%>
+
 <p> Shared with:
  <% @wiki.collaborations.each do |c| %>
 
@@ -29,6 +31,8 @@
 
  <% end %>
 </p>
+
+<% end %>
 
 </div>
 

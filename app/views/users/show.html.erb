@@ -4,31 +4,35 @@
 <h1> <%= @user.name %></h1>
 <% end %>
 
+<br>
+
 <% @wikis.each do |wiki| %> 
 
 <% if wiki.users.include?(current_user) || wiki.public? %>
 
+<p>
+
 <div class = 'row'>
   
 
-  <div class="col-md-2 col-md-offset-2 no-overflow shift-down"> 
+  <div class="col-md-2 col-md-offset-2 no-overflow"> 
     <%= link_to wiki.markdown_title, wiki %> 
   </div> 
 
-  <div class="col-md-2 no-overflow shift-down">
+  <div class="col-md-2 no-overflow">
     <% if policy(wiki).edit? %>
     <%= link_to "Edit", edit_wiki_path(wiki) %>
     <% end %>
   </div>
 
-  <div class="col-md-2 no-overflow shift-down">
+  <div class="col-md-2 no-overflow">
     <% if wiki.private? && current_user == wiki.collaborations.first.user%>
     <%= link_to "Add user", new_wiki_collaboration_path(wiki) %>
     <% end %>
   </div>
 
 
-  <div class="col-md-2 no-overflow shift-down">
+  <div class="col-md-2 no-overflow">
     <% if policy(wiki).destroy? %>
     <%= link_to "Delete", wiki, method: :delete %>
     <% end %>
@@ -36,10 +40,14 @@
 
 </div>
 
-<% end %>
+</p>
 
 <% end %>
 
+<% end %>
+
+
+<%= will_paginate @wikis %>
 
 
 <div class="col-md-2 col-md-offset-5">
