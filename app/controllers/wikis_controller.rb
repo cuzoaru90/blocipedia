@@ -23,12 +23,12 @@ class WikisController < ApplicationController
         @wiki.update_attribute(:private, false)
       end
 
-    @wiki.user = current_user
+    @wiki.users.push(current_user) # Wiki needs to have an initial user/collaboration
     authorize @wiki
 
      if @wiki.save
        flash[:notice] = "Wiki was saved."
-       redirect_to wikis_path
+       redirect_to @wiki.users.first
      else
        flash[:error] = "Error. Couuld not save the wiki."
      end
@@ -37,14 +37,16 @@ class WikisController < ApplicationController
 
   def edit
     @wiki = Wiki.find(params[:id])
+    @users = @wiki.available_users
     authorize @wiki
   end
 
   def update
      @wiki = Wiki.find(params[:id])
+     
      if @wiki.update_attributes(wiki_params)
        flash[:notice] = "Updated the wiki."
-       redirect_to @wiki.user
+       redirect_to @wiki
      else
        flash[:error] = "Could not update wiki. Please try again."
        render :edit
@@ -56,17 +58,18 @@ class WikisController < ApplicationController
  
      if @wiki.destroy
        flash[:notice] = "\"#{@wiki.title}\" has been deleted."
-       redirect_to @wiki.user
+       redirect_to @wiki.users.first
      else
        flash[:error] = "Could not delete the wiki."
        render :show
      end
    end
 
+
   private
 
   def wiki_params
-    params.require(:wiki).permit(:title, :body, :private)
+    params.require(:wiki).permit(:title, :body, :private, :collaborations)
   end
 
 end

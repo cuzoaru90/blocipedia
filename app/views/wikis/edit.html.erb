@@ -3,6 +3,7 @@
  
  <div class = "tall teal container">
 
+
  <div class="row">
    <div class="col-md-4 col-md-offset-2">
      <%= form_for @wiki do |f| %>
@@ -15,7 +16,7 @@
          <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki content" %>
        </div>
        <div class="form-group">
-         <% if current_user.premium? && @wiki.user == current_user%>
+         <% if current_user.premium? && @wiki.collaborations.first.user == current_user%>
            <%= f.check_box :private, {checked: @wiki.private?} %>
            <%= f.label "Private" %>
          <% end %>

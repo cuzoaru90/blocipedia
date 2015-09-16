@@ -10,7 +10,7 @@ require 'faker'
 
 User.destroy_all
 
-5.times do
+10.times do
   user = User.new( name:     Faker::Name.name,
                    email:    Faker::Internet.email,
                    password: 'helloworld' )
@@ -26,9 +26,22 @@ user.save!
 
 users = User.all
 
-20.times do
-  wiki = Wiki.create!( title: Faker::Lorem.word,
-                       body:  Faker::Lorem.paragraph,
-                       private: false, # public by default
-                       user: users.sample )
+users.each do | user | 
+  user.wikis.create!( title: Faker::Lorem.word,
+                      body:  Faker::Lorem.paragraph,
+                      private: false )
 end
+
+wikis = Wiki.all
+
+# count = 0
+
+# while count < 20
+#   user = users.sample
+#   wiki = wikis.sample
+
+#   if !collaboration.find_by(user_id: user.id, wiki_id: wiki.id)
+#     collaboration.create(user: user, wiki: wiki)
+#     count = count + 1
+#   end
+# end

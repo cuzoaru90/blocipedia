@@ -1,19 +1,27 @@
 <h1>Users</h1>
 
 
-  <% @users.each do |user| %>
+<% @users.each do |user| %>
+<p>
+
   <div class = 'row'>
 
-    <div class="col-md-2 col-md-offset-3 shift-down"> 
+    <div class="col-md-2 col-md-offset-3"> 
       <%= link_to user.name, user %>
     </div>
 
-    <div class="col-md-2 col-md-offset-3 shift-down"> 
+   <!--  <div class="col-md-2"> 
+      <%= user.email %>
+    </div> -->
+
+    <div class="col-md-2"> 
       <%= user.role %> user
     </div>
 
   </div>
 
-  <% end %>
+</p>
 
-  <%= will_paginate @users %>
+<% end %>
+
+<%= will_paginate @users %>
