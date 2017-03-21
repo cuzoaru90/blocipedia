@@ -6,33 +6,33 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-require 'faker'
+# require 'faker'
 
-User.destroy_all
+# User.destroy_all
 
-10.times do
-  user = User.new( name:     Faker::Name.name,
-                   email:    Faker::Internet.email,
-                   password: 'helloworld' )
-  user.skip_confirmation!
-  user.save!
-end
+# 10.times do
+#   user = User.new( name:     Faker::Name.name,
+#                    email:    Faker::Internet.email,
+#                    password: 'helloworld' )
+#   user.skip_confirmation!
+#   user.save!
+# end
 
-user = User.new( name:     'Chuck Uzoaru', 
-                 email:    'cuzoaru90@gmail.com', 
-                 password: 'helloworld' )
-user.skip_confirmation!
-user.save!
+# user = User.new( name:     'Chuck Uzoaru', 
+#                  email:    'cuzoaru90@gmail.com', 
+#                  password: 'helloworld' )
+# user.skip_confirmation!
+# user.save!
 
-users = User.all
+# users = User.all
 
-users.each do | user | 
-  user.wikis.create!( title: Faker::Lorem.word,
-                      body:  Faker::Lorem.paragraph,
-                      private: false )
-end
+# users.each do | user | 
+#   user.wikis.create!( title: Faker::Lorem.word,
+#                       body:  Faker::Lorem.paragraph,
+#                       private: false )
+# end
 
-wikis = Wiki.all
+# wikis = Wiki.all
 
 # count = 0
 

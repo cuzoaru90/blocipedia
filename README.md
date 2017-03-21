@@ -2,7 +2,7 @@
 
 <Project Description>
 
-This app powers Blocipedia at {https://immense-coast-4160.herokuapp.com/}
+This app powers Blocipedia at https://immense-coast-4160.herokuapp.com/
 
 ## Getting Started
 
